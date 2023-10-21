@@ -1,0 +1,9 @@
+@import '../colors.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: auto;
+  background-color: $very-light-gray;
+}
