@@ -1,0 +1,22 @@
+<div class="flex justify-between mb-8 w-full text-sm">
+  <div class="flex items-center bg-white shadow-lg rounded-lg px-6">
+    <img
+      class="h-4 mr-2"
+      src="../../../../assets/img/magnifying-glass-solid.svg"
+      alt="Search icon"
+    />
+    <input
+      class="p-3 font-light focus:outline-none rounded-lg"
+      type="text"
+      placeholder="Search for a country..."
+    />
+  </div>
+
+  <p-dropdown
+    class="shadow-lg"
+    [options]="regions"
+    placeholder="Filter by region"
+    ngModel="selectedRegion"
+    [showClear]="true"
+  ></p-dropdown>
+</div>

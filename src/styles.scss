@@ -9,11 +9,29 @@
   src: url(./assets/fonts/NunitoSans-VariableFont_wght.ttf);
 }
 
+body, p-component {
+  font-family: NunitoSans;
+}
+
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  font-family: NunitoSans;
   font-weight: 600;
   color: $very-dark-blue-lm;
 }
+
+.p-dropdown, .p-dropdown-item {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.p-inputtext {
+  font-size: 14px;
+}
+
+.p-focus {
+  box-shadow: none;
+}
+
+
