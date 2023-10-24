@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Country } from '../../model/country';
 
 @Component({
   selector: 'app-country-card',
@@ -6,4 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./country-card.component.scss']
 })
 export class CountryCardComponent {
+
+  @Input({required: true})
+  country!: Country;
+
+  getCapitalString(): string {
+    if (this.country.capital !== undefined) {
+      return this.country.capital.join(', ');
+    } 
+    return '';
+  }
 }

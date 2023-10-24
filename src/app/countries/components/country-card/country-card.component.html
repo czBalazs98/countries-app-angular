@@ -1,2 +1,16 @@
-<div class="flex flex-col">
+<div class="flex flex-col w-full h-full bg-white rounded-lg shadow-lg cursor-pointer">
+  <img
+    class="rounded-t-lg max-h-50percent"
+    [src]="country.flags.png"
+    [alt]="country.flags.alt"
+  />
+  <div class="flex flex-col p-6 h-fit">
+    <p class="mb-2 text-lg font-extrabold">{{ country.name.common }}</p>
+    <p>
+      <span class="font-extrabold">Population:</span>
+      {{ country.population | number }}
+    </p>
+    <p><span class="font-extrabold">Region:</span> {{ country.region }}</p>
+    <p><span class="font-extrabold">Capital:</span> {{ getCapitalString() }}</p>
+  </div>
 </div>

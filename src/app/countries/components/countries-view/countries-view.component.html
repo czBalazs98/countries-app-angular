@@ -1,4 +1,12 @@
-<div class="p-16">
-    <app-filter-bar></app-filter-bar>
-    <p>Countries view</p>
+<div class="flex flex-col p-12">
+  <app-filter-bar></app-filter-bar>
+  <div
+    class="grid items-center content-center grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-evenly justify-items-center"
+  >
+    <app-country-card
+      class="w-full h-full"
+      *ngFor="let country of countries"
+      [country]="country"
+    ></app-country-card>
+  </div>
 </div>

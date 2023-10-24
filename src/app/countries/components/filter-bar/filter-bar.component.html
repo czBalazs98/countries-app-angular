@@ -1,19 +1,18 @@
-<div class="flex justify-between mb-8 w-full text-sm">
-  <div class="flex items-center bg-white shadow-lg rounded-lg px-6">
+<div class="flex flex-col mb-12 text-sm gape-5 sm:flex-row sm:justify-between">
+  <div class="flex items-center px-6 mb-12 bg-white rounded-lg shadow-lg sm:mb-0">
     <img
       class="h-4 mr-2"
       src="../../../../assets/img/magnifying-glass-solid.svg"
       alt="Search icon"
     />
     <input
-      class="p-3 font-light focus:outline-none rounded-lg"
+      class="p-3 font-light rounded-lg focus:outline-none"
       type="text"
       placeholder="Search for a country..."
     />
   </div>
 
   <p-dropdown
-    class="shadow-lg"
     [options]="regions"
     placeholder="Filter by region"
     ngModel="selectedRegion"
