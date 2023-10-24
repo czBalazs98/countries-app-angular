@@ -13,8 +13,18 @@ export class CountriesViewComponent {
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
-    this.countryService.findAllCountries().subscribe((data) => {
-      this.countries = data;
-    });
+    this.searchCountries('');
+  }
+
+  searchCountries(name: string) {
+    if (name !== '') {
+      this.countryService
+        .findCountryByName(name)
+        .subscribe((data) => (this.countries = data));
+    } else {
+      this.countryService
+        .findAllCountries()
+        .subscribe((data) => (this.countries = data));
+    }
   }
 }

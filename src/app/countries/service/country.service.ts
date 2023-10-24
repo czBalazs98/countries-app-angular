@@ -14,4 +14,8 @@ export class CountryService {
   findAllCountries(): Observable<Country[]> {
     return this.httpClient.get<Country[]>(`${environment.apiUrl}/all`);
   }
+
+  findCountryByName(name: string): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(`${environment.apiUrl}/name/${name}`);
+  }
 }

@@ -6,9 +6,12 @@
       alt="Search icon"
     />
     <input
+      #searchInput
       class="p-3 font-light rounded-lg focus:outline-none"
       type="text"
       placeholder="Search for a country..."
+      [formControl]="searchInputControl"
+      (keydown)="triggerSearchEvent()"
     />
   </div>
 
