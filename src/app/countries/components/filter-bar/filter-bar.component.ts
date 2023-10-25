@@ -33,7 +33,6 @@ export class FilterBarComponent {
   }
 
   triggerSearchByRegionEvent() {
-    console.log(this.selectedRegion);
     this.searchByRegionEvent.emit(this.selectedRegion);
   }
 }
