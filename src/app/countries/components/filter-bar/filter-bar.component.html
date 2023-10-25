@@ -11,7 +11,7 @@
       type="text"
       placeholder="Search for a country..."
       [formControl]="searchInputControl"
-      (keydown)="triggerSearchEvent()"
+      (keyup)="triggerSearchEvent()"
     />
   </div>
 

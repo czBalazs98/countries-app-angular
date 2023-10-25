@@ -18,9 +18,10 @@ export class CountriesViewComponent {
 
   searchCountries(name: string) {
     if (name !== '') {
-      this.countryService
-        .findCountryByName(name)
-        .subscribe((data) => (this.countries = data));
+      this.countryService.findCountryByName(name).subscribe({
+        next: (data) => (this.countries = data),
+        error: (_) => (this.countries = []),
+      });
     } else {
       this.countryService
         .findAllCountries()
