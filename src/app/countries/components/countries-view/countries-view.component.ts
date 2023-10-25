@@ -13,19 +13,34 @@ export class CountriesViewComponent {
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
-    this.searchCountries('');
+    this.searchCountriesByName('');
   }
 
-  searchCountries(name: string) {
+  searchCountriesByName(name: string) {
     if (name !== '') {
       this.countryService.findCountryByName(name).subscribe({
         next: (data) => (this.countries = data),
         error: (_) => (this.countries = []),
       });
     } else {
-      this.countryService
-        .findAllCountries()
-        .subscribe((data) => (this.countries = data));
+      this.searchCountriesWithoutFilter();
     }
+  }
+
+  searchCountriesByRegion(region: string) {
+    if (region !== null) {
+      this.countryService.findCountryByRegion(region).subscribe({
+        next: (data) => (this.countries = data),
+        error: (_) => (this.countries = []),
+      });
+    } else {
+      this.searchCountriesWithoutFilter();
+    }
+  }
+
+  searchCountriesWithoutFilter() {
+    this.countryService
+      .findAllCountries()
+      .subscribe((data) => (this.countries = data));
   }
 }

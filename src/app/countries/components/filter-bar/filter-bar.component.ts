@@ -10,10 +10,13 @@ import { Subject, debounceTime } from 'rxjs';
 export class FilterBarComponent {
   regions: string[] = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
-  selectedRegion?: string;
+  selectedRegion: string = '';
 
   @Output()
-  searchEvent = new EventEmitter<string>();
+  searchByNameEvent = new EventEmitter<string>();
+
+  @Output()
+  searchByRegionEvent = new EventEmitter<string>();
 
   searchInputControl: FormControl = new FormControl('');
 
@@ -22,10 +25,15 @@ export class FilterBarComponent {
   ngOnInit() {
     this.searchSubject
       .pipe(debounceTime(500))
-      .subscribe((value) => this.searchEvent.emit(value));
+      .subscribe((value) => this.searchByNameEvent.emit(value));
   }
 
-  triggerSearchEvent() {
+  triggerSearchByNameEvent() {
     this.searchSubject.next(this.searchInputControl.value);
+  }
+
+  triggerSearchByRegionEvent() {
+    console.log(this.selectedRegion);
+    this.searchByRegionEvent.emit(this.selectedRegion);
   }
 }

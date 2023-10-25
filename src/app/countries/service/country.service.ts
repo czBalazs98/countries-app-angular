@@ -18,4 +18,10 @@ export class CountryService {
   findCountryByName(name: string): Observable<Country[]> {
     return this.httpClient.get<Country[]>(`${environment.apiUrl}/name/${name}`);
   }
+
+  findCountryByRegion(region: string): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(
+      `${environment.apiUrl}/region/${region}`
+    );
+  }
 }

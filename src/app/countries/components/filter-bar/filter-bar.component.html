@@ -11,14 +11,15 @@
       type="text"
       placeholder="Search for a country..."
       [formControl]="searchInputControl"
-      (keyup)="triggerSearchEvent()"
+      (keyup)="triggerSearchByNameEvent()"
     />
   </div>
 
   <p-dropdown
     [options]="regions"
     placeholder="Filter by region"
-    ngModel="selectedRegion"
+    [(ngModel)]="selectedRegion"
     [showClear]="true"
+    (onChange)="triggerSearchByRegionEvent()"
   ></p-dropdown>
 </div>
