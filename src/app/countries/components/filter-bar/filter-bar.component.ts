@@ -30,9 +30,11 @@ export class FilterBarComponent {
 
   triggerSearchByNameEvent() {
     this.searchSubject.next(this.searchInputControl.value);
+    this.selectedRegion = '';
   }
 
   triggerSearchByRegionEvent() {
     this.searchByRegionEvent.emit(this.selectedRegion);
+    this.searchInputControl.setValue('');
   }
 }
