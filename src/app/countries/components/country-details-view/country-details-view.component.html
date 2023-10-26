@@ -13,14 +13,14 @@
     >
   </div>
 
-  <div class="flex">
-    <img class="w-1/2" [src]="country.flags.svg" [alt]="country.flags.alt" />
+  <div class="flex flex-col sm:flex-row">
+    <img class="sm:w-1/2" [src]="country.flags.svg" [alt]="country.flags.alt" />
 
-    <div class="flex flex-col px-20 py-8">
+    <div class="flex flex-col py-8 sm:px-20">
       <p class="mb-6 text-3xl font-extrabold">{{ country.name.common }}</p>
 
-      <div class="flex">
-        <div class="mr-20">
+      <div class="flex flex-col sm:flex-row">
+        <div class="mb-10 sm:mr-20">
           <p>
             <span class="font-extrabold">Native Name: </span>
             {{ getNativeName() }}
@@ -57,10 +57,10 @@
         </div>
       </div>
 
-      <div class="flex flex-wrap gap-1 mt-12">
+      <div class="flex flex-wrap items-center gap-2 mt-12">
         <p class="font-extrabold">Border Countries:</p>
 
-        <div *ngFor="let border of borders" class="px-2 mx-2 bg-white rounded-sm component-box-shadow">
+        <div *ngFor="let border of borders" class="px-4 py-1 mx-1 bg-white rounded-sm component-box-shadow">
             <p class="text-sm">{{ border }}</p>
         </div>
       </div>
