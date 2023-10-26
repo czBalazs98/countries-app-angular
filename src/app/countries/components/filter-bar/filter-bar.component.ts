@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subject, debounceTime } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-filter-bar',
@@ -8,7 +9,8 @@ import { Subject, debounceTime } from 'rxjs';
   styleUrls: ['./filter-bar.component.scss'],
 })
 export class FilterBarComponent {
-  regions: string[] = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  
+  regions: string[] = environment.regions;
 
   selectedRegion: string = '';
 

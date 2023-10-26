@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CountriesViewComponent } from './countries/components/countries-view/countries-view.component';
 import { FilterBarComponent } from './countries/components/filter-bar/filter-bar.component';
 import { CountryCardComponent } from './countries/components/country-card/country-card.component';
+import { CountryDetailsViewComponent } from './countries/components/country-details-view/country-details-view.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CountryCardComponent } from './countries/components/country-card/countr
     CountriesViewComponent,
     FilterBarComponent,
     CountryCardComponent,
+    CountryDetailsViewComponent,
   ],
   imports: [
     BrowserModule,

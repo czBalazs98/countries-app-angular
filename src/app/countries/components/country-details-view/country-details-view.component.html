@@ -1,0 +1,69 @@
+<div *ngIf="country" class="flex flex-col p-12">
+  <div class="flex mb-12">
+    <a
+      class="flex px-4 py-2 bg-white rounded-lg flex-s drop-shadow-xl"
+      routerLink="/countries"
+    >
+      <img
+        class="mr-4"
+        src="../../../../assets/img/arrow-left-long.svg"
+        alt="Back arrow"
+      />
+      Back</a
+    >
+  </div>
+
+  <div class="flex">
+    <img class="w-1/2" [src]="country.flags.svg" [alt]="country.flags.alt" />
+
+    <div class="flex flex-col px-20 py-8">
+      <p class="mb-6 text-3xl font-extrabold">{{ country.name.common }}</p>
+
+      <div class="flex">
+        <div class="mr-20">
+          <p>
+            <span class="font-extrabold">Native Name: </span>
+            {{ getNativeName() }}
+          </p>
+          <p>
+            <span class="font-extrabold">Population: </span>
+            {{ country.population | number }}
+          </p>
+          <p>
+            <span class="font-extrabold">Region: </span> {{ country.region }}
+          </p>
+          <p>
+            <span class="font-extrabold">Sub Region: </span>
+            {{ country.subregion }}
+          </p>
+          <p>
+            <span class="font-extrabold">Capital: </span> {{ getCapitals() }}
+          </p>
+        </div>
+
+        <div>
+          <p>
+            <span class="font-extrabold">Top Level Domain: </span>
+            {{ getTopLevelDomain() }}
+          </p>
+          <p>
+            <span class="font-extrabold">Currencies: </span>
+            {{ getCurrencies() }}
+          </p>
+          <p>
+            <span class="font-extrabold">Languages: </span>
+            {{ getLanguages() }}
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-1 mt-12">
+        <p class="font-extrabold">Border Countries:</p>
+
+        <div *ngFor="let border of borders" class="px-2 mx-2 bg-white rounded-sm component-box-shadow">
+            <p class="text-sm">{{ border }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
