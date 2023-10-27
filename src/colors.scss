@@ -1,3 +1,15 @@
+@mixin light-theme() {
+  --text-color: #{meta.inspect($very-dark-blue-lm)};
+  --bg-color: #{meta.inspect($very-light-gray)};
+  --component-color: white;
+}
+
+@mixin dark-theme() {
+  --text-color: white;
+  --bg-color: #{meta.inspect($very-dark-blue-dm)};
+  --component-color: #{meta.inspect($dark-blue)};
+}
+
 $dark-blue: hsl(209, 23%, 22%);
 $very-dark-blue-dm: hsl(207, 26%, 17%);
 $very-dark-blue-lm: hsl(200, 15%, 8%);

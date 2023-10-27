@@ -3,6 +3,8 @@ import { Country } from '../../model/country';
 import { CountryService } from '../../service/country.service';
 import { ActivatedRoute } from '@angular/router';
 import { getCapitals } from '../../utils/country-utils';
+import { AppComponent } from 'src/app/app.component';
+import { ThemeMode } from '../../utils/theme';
 
 @Component({
   selector: 'app-country-details-view',
@@ -68,5 +70,13 @@ export class CountryDetailsViewComponent {
     this.countryService
       .findCountryNamesByCodes(this.country!.borders)
       .subscribe((data) => (this.borders = data));
+  }
+
+  getBackArrowImgSrc(): string {
+    if (AppComponent.theme === ThemeMode.LightMode) {
+      return "../../../../assets/img/arrow-left-long.svg";
+    } else {
+      return "../../../../assets/img/arrow-left-long-dark.svg";
+    }
   }
 }

@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,13 +21,27 @@ body {
   height: 100vh;
   margin: 0;
   font-weight: 300;
-  color: $very-dark-blue-lm;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  @include light-theme();
+}
+
+body.dark-theme {
+  @include dark-theme();
 }
 
 .p-dropdown,
 .p-dropdown-item {
+  background-color: var(--component-color);
   font-weight: 300;
   font-size: 14px;
+}
+
+.p-dropdown-label, .p-dropdown-item {
+  color: var(--text-color);
 }
 
 .p-dropdown {
@@ -42,6 +58,10 @@ body {
 
 .p-focus {
   box-shadow: none;
+}
+
+.component-bg {
+  background-color: var(--component-color);
 }
 
 .component-box-shadow {

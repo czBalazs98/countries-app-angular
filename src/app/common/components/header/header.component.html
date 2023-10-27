@@ -1,7 +1,14 @@
-<div class="flex items-center px-6 py-6 bg-white shadow-md sm:px-16">
+<div
+  class="flex items-center px-6 py-6 shadow-md component-bg sm:px-16"
+  (click)="toggleDarkTheme()"
+>
   <p class="flex-grow text-lg font-extrabold">Where in the world?</p>
   <button class="flex items-center h-full font-semibold">
-    <img class="h-4 mr-1" src="../../../../assets/img/moon-regular.svg" alt="Dark mode icon" /> Dark
-    mode
+    <img
+      class="h-4 mr-1"
+      [src]="switchToTheme.imageSrc"
+      [alt]="switchToTheme.imageAlt"
+    />
+    {{ switchToTheme.mode }}
   </button>
 </div>
