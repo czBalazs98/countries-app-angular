@@ -1,9 +1,9 @@
-<div
-  class="flex items-center px-6 py-6 shadow-md component-bg sm:px-16"
-  (click)="toggleDarkTheme()"
->
+<div class="flex items-center px-6 py-6 shadow-md component-bg sm:px-16">
   <p class="flex-grow text-lg font-extrabold">Where in the world?</p>
-  <button class="flex items-center h-full font-semibold">
+  <button
+    class="flex items-center h-full font-semibold"
+    (click)="toggleDarkTheme()"
+  >
     <img
       class="h-4 mr-1"
       [src]="switchToTheme.imageSrc"
