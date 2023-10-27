@@ -1,4 +1,4 @@
-<div *ngIf="country" class="flex flex-col p-12">
+<div class="flex flex-col p-12">
   <div class="flex mb-12">
     <a
       class="flex px-4 py-2 rounded-lg shadow-md component-bg"
@@ -13,7 +13,7 @@
     >
   </div>
 
-  <div class="flex flex-col lg:flex-row">
+  <div *ngIf="country" class="flex flex-col lg:flex-row">
     <img class="lg:w-1/2" [src]="country.flags.svg" [alt]="country.flags.alt" />
 
     <div class="flex flex-col py-8 lg:px-20">
