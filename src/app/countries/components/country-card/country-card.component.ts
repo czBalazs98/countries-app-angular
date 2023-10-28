@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Country } from '../../model/country';
 import { Router } from '@angular/router';
 import { getCapitals } from '../../utils/country-utils';
+import { navigateToDetails } from '../../utils/navigation-utils';
 
 @Component({
   selector: 'app-country-card',
@@ -15,7 +16,7 @@ export class CountryCardComponent {
   constructor(private router: Router) {}
 
   navigateToDetails() {
-    this.router.navigate(['countries', this.country.name.common]);
+    navigateToDetails(this.router, this.country.name.common);
   }
 
   getCapitals() {
