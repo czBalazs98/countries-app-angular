@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Country } from '../../model/country';
 import { CountryService } from '../../service/country.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getCapitals } from '../../utils/country-utils';
 import { AppComponent } from 'src/app/app.component';
 import { ThemeMode } from '../../utils/theme';
+import { navigateToDetails } from '../../utils/navigation-utils';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-country-details-view',
@@ -18,15 +20,18 @@ export class CountryDetailsViewComponent {
 
   constructor(
     private countryService: CountryService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const countryName = routeParams.get('name');
-
-    this.countryService
-      .findCountryByName(countryName!, true)
+    this.route.paramMap
+      .pipe(
+        switchMap((params) => {
+          const countryName = params.get('name');
+          return this.countryService.findCountryByName(countryName!, true);
+        })
+      )
       .subscribe((data) => {
         this.country = data[0];
         this.findBorders();
@@ -74,9 +79,13 @@ export class CountryDetailsViewComponent {
 
   getBackArrowImgSrc(): string {
     if (AppComponent.theme === ThemeMode.LightMode) {
-      return "../../../../assets/img/arrow-left-long.svg";
+      return '../../../../assets/img/arrow-left-long.svg';
     } else {
-      return "../../../../assets/img/arrow-left-long-dark.svg";
+      return '../../../../assets/img/arrow-left-long-dark.svg';
     }
+  }
+
+  navigateToDetails(countryName: string) {
+    navigateToDetails(this.router, countryName);
   }
 }

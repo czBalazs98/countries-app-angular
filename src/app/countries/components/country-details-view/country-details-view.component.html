@@ -4,11 +4,7 @@
       class="flex px-4 py-2 rounded-lg shadow-md component-bg"
       routerLink="/countries"
     >
-      <img
-        class="mr-4"
-        [src]="getBackArrowImgSrc()"
-        alt="Back arrow"
-      />
+      <img class="mr-4" [src]="getBackArrowImgSrc()" alt="Back arrow" />
       Back</a
     >
   </div>
@@ -60,8 +56,12 @@
       <div class="flex flex-wrap items-center gap-2 mt-12">
         <p class="font-extrabold">Border Countries:</p>
 
-        <div *ngFor="let border of borders" class="px-4 py-1 mx-1 rounded-sm component-bg component-box-shadow">
-            <p class="text-sm">{{ border }}</p>
+        <div
+          *ngFor="let border of borders"
+          class="px-4 py-1 mx-1 rounded-sm cursor-pointer component-bg component-box-shadow hover:text-blue-400"
+          (click)="navigateToDetails(border)"
+        >
+          <p class="text-sm">{{ border }}</p>
         </div>
       </div>
     </div>
